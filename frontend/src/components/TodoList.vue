@@ -38,8 +38,6 @@ export default {
         });
         this.newTodo = '';
         this.idForTodo++;
-        )
-
       }
 
   }
