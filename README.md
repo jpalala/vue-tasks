@@ -7,3 +7,5 @@
 3. Create input field
 
 4. Create list of todos in todolist's data ()  
+
+5. Create addTodo method

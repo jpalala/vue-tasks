@@ -25,6 +25,23 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+      addTodo() {
+        if (this.newTodo.trim().length == 0) {
+          return
+        }
+        this.todos.push({
+              id: this.idForTodo,
+              title: this.newTodo,
+              completed: false
+        });
+        this.newTodo = '';
+        this.idForTodo++;
+        )
+
+      }
+
   }
 }
 </script>
@@ -38,5 +55,12 @@ export default {
 
 .todo-input:focus {
   outline:0;
+}
+
+.todo-item {
+  margin-bottom: 15px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>
