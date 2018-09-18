@@ -68,7 +68,14 @@ export default {
       doneEdit(todo) {
         todo.editing = false;
       }
-      
+  },
+  directives: {
+    focus: {
+      //directive def
+      inserted: function(el){ 
+        el.focus();
+      }
+    }
 
   }
 }
@@ -100,5 +107,18 @@ export default {
   color:black;
 
 }
+.todo-item-edit {
+  font-size: 24px;
+  color: #2c3ecc;
+  margin-left: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: Helvetica, Arial, sans-serif;
 
+}
+.todo-item-edit:focus {
+  outline:n one;
+
+}
 </style>
