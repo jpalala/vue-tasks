@@ -3,20 +3,13 @@
     <input type="text" class="todo-input" placeholder="Just do it!" v-model="newTodo" @keyup.enter="addTodo">
     <div v-for="todo in todos" :key="todo.id" class="todo-item">
       <div class="todo-item-left"> 
-<<<<<<< HEAD
-=======
         <input type="checkbox" v-model="todo.completed">
->>>>>>> step5
         <div v-if="!todo.editing" 
         @dblclick="editTodo(todo)" 
         @blur="doneEdit(todo)" 
         @keyup.enter="doneEdit(todo)" 
         @keyup.esc="cancelEdit(todo)" 
-<<<<<<< HEAD
-        class="todo-item-label" v-focus>{{todo.title}}</div>
-=======
         class="todo-item-label">{{todo.title}}</div>
->>>>>>> step5
         <input v-else type="text" class="todo-item-edit" @blur="doneEdit(todo)" v-model="todo.title">
       </div>
       
@@ -133,5 +126,5 @@ export default {
   outline:none;
 }
 
-}
+
 </style>
