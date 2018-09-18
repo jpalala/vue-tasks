@@ -3,6 +3,7 @@
     <input type="text" class="todo-input" placeholder="Just do it!" v-model="newTodo" @keyup.enter="addTodo">
     <div v-for="todo in todos" :key="todo.id" class="todo-item">
       <div class="todo-item-left"> 
+        <input type="checkbox" v-model="todo.completed">
         <div v-if="!todo.editing" 
         @dblclick="editTodo(todo)" 
         @blur="doneEdit(todo)" 
@@ -99,6 +100,19 @@ export default {
 .remove-item:hover{
   color:black;
 
+}
+.todo-item-edit {
+  font-size: 24px;
+  color: #2c3ecc;
+  margin-left: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: Helvetica, Arial, sans-serif;
+
+}
+.todo-item-edit:focus {
+  outline:none;
 }
 
 </style>
