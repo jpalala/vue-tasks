@@ -3,11 +3,12 @@
     <input type="text" class="todo-input" placeholder="Just do it!" v-model="newTodo" @keyup.enter="addTodo">
     <div v-for="todo in todos" :key="todo.id" class="todo-item">
       <div class="todo-item-left"> 
-        <div v-if="!todo.editing" @dblclick="editTodo(todo)" @blur="doneEdit(todo)" class="todo-item-label">{{ todo.title }}</div>
+        <div v-if="!todo.editing" 
+          @dblclick="editTodo(todo)" 
+          @blur="doneEdit(todo)" class="todo-item-label">{{ todo.title }}</div>
+        <input v-else type="text" class="todo-item-edit">v-model="todo.title">
       </div>
-       
-        <input type="text" class="todo-item-edit">v-model="todo.title">
-      <div class="remove-item">&times;</div>
+       <div class="remove-item">&times;</div>
     </div>
   </div>
 </template>
