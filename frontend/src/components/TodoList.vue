@@ -66,6 +66,10 @@ export default {
         todo.title = this.beforeEditCache; 
       },
       doneEdit(todo) {
+        //disallow empty string check
+        if(todo.title.trim().length ==0) { 
+          todo.title = this.beforeEditCache;
+        }
         todo.editing = false;
       }
   },
