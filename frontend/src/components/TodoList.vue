@@ -1,22 +1,23 @@
 <template>
   <div>
+    
     <input type="text" class="todo-input" placeholder="Just do it!" v-model="newTodo" @keyup.enter="addTodo">
+    
     <div v-for="todo in todos" :key="todo.id" class="todo-item">
       <div class="todo-item-left"> 
-        <input type="checkbox" v-model="todo.completed">
-        <div v-if="!todo.editing" 
-        @dblclick="editTodo(todo)" 
-        @blur="doneEdit(todo)" 
-        @keyup.enter="doneEdit(todo)" 
-        @keyup.esc="cancelEdit(todo)" 
-        class="todo-item-label" :class="{ completed : todo.completed }">{{todo.title}}</div>
+          <input type="checkbox" v-model="todo.completed">
+          <div v-if="!todo.editing" 
+          @dblclick="editTodo(todo)" 
+          @blur="doneEdit(todo)" 
+          @keyup.enter="doneEdit(todo)" 
+          @keyup.esc="cancelEdit(todo)" 
+          class="todo-item-label" :class="{ completed : todo.completed }">{{todo.title}}</div>
         <input v-else type="text" class="todo-item-edit" @blur="doneEdit(todo)" v-model="todo.title">
       </div>
-      
-       
-       
-      <div class="remove-item">&times;</div>
+    <div class="remove-item">&times;</div>
+
     </div>
+
   </div>
 </template>
 
@@ -122,7 +123,11 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
 
 }
-.todo-item-edit:focus {
+
+.todo-item-label {
+  float:right;
+}
+ .todo-item-edit:focus {
   outline:none;
 }
 
