@@ -9,7 +9,7 @@
         @blur="doneEdit(todo)" 
         @keyup.enter="doneEdit(todo)" 
         @keyup.esc="cancelEdit(todo)" 
-        class="todo-item-label">{{todo.title}}</div>
+        class="todo-item-label" :class="{ completed : todo.completed }">{{todo.title}}</div>
         <input v-else type="text" class="todo-item-edit" @blur="doneEdit(todo)" v-model="todo.title">
       </div>
       
@@ -126,5 +126,10 @@ export default {
   outline:none;
 }
 
+.completed {
+  text-decoration: line-through;
+  color:grey;
+
+}
 
 </style>
