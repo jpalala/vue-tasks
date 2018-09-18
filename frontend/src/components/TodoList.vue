@@ -13,8 +13,9 @@
           @keyup.esc="cancelEdit(todo)" 
           class="todo-item-label" :class="{ completed : todo.completed }">{{todo.title}}</div>
         <input v-else type="text" class="todo-item-edit" @blur="doneEdit(todo)" v-model="todo.title">
-    </div>
+      </div>
     <div class="remove-item">&times;</div>
+
     </div>
 
   </div>
@@ -122,7 +123,11 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
 
 }
-.todo-item-edit:focus {
+
+.todo-item-label {
+  float:right;
+}
+ .todo-item-edit:focus {
   outline:none;
 }
 
