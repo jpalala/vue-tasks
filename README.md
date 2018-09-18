@@ -9,3 +9,7 @@
 4. Create list of todos in todolist's data ()  
 
 5. Create addTodo method
+
+6. create editTodo,  doneEdit methods
+
+7. add completed checkbox
