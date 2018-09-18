@@ -8,7 +8,7 @@
         @blur="doneEdit(todo)" 
         @keyup.enter="doneEdit(todo)" 
         @keyup.esc="cancelEdit(todo)" 
-        class="todo-item-label">{{todo.title}}</div>
+        class="todo-item-label" v-focus>{{todo.title}}</div>
         <input v-else type="text" class="todo-item-edit" @blur="doneEdit(todo)" v-model="todo.title">
       </div>
       
