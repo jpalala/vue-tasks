@@ -2,9 +2,11 @@
   <div>
     <input type="text" class="todo-input" placeholder="Just do it!" v-model="newTodo" @keyup.enter="addTodo">
     <div v-for="todo in todos" :key="todo.id" class="todo-item">
-      <div>
-        {{ todo.title }}
+      <div class="todo-item-left"> 
+        <div v-if="!todo.editing" @dblclick="editTodo(todo)" class="todo-item-label">{{ todo.title }}</div>
       </div>
+       
+        <input type="text" class="todo-item-edit">v-model="todo.title">
       <div class="remove-item">&times;</div>
     </div>
   </div>
@@ -22,12 +24,14 @@ export default {
         {
           'id': 1,
           'title': 'Get started with vue',
-          'completed': false
+          'completed': false,
+          'editing': false,
         },
         {
           'id': 2,
           'title': 'Connect laravel',
-          'completed': false
+          'completed': false,
+          'editing': false,
         }
       ]
     }
@@ -44,7 +48,11 @@ export default {
         });
         this.newTodo = '';
         this.idForTodo++;
+      },
+      editTodo(todo) {
+        todo.editing = true;
       }
+      
 
   }
 }
