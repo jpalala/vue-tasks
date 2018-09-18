@@ -4,11 +4,17 @@
     <div v-for="todo in todos" :key="todo.id" class="todo-item">
       <div class="todo-item-left"> 
         <div v-if="!todo.editing" 
-          @dblclick="editTodo(todo)" 
-          @blur="doneEdit(todo)" class="todo-item-label">{{ todo.title }}</div>
-        <input v-else type="text" class="todo-item-edit">v-model="todo.title">
+        @dblclick="editTodo(todo)" 
+        @blur="doneEdit(todo)" 
+        @keyup.enter="doneEdit(todo)" 
+        @keyup.esc="cancelEdit(todo)" 
+        class="todo-item-label">{{todo.title}}</div>
+        <input v-else type="text" class="todo-item-edit" @blur="doneEdit(todo)" v-model="todo.title">
       </div>
-       <div class="remove-item">&times;</div>
+      
+       
+       
+      <div class="remove-item">&times;</div>
     </div>
   </div>
 </template>
@@ -21,6 +27,7 @@ export default {
   data () {
     return {
       newTodo: '',
+      beforeEditCache: '',
       todos: [
         {
           'id': 1,
@@ -51,7 +58,12 @@ export default {
         this.idForTodo++;
       },
       editTodo(todo) {
+        this.beforeEditCache = todo.title;
         todo.editing = true;
+      },
+      cancelEdit(todo) {
+        todo.editing = false;
+        todo.title = this.beforeEditCache; 
       },
       doneEdit(todo) {
         todo.editing = false;
