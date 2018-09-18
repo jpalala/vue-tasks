@@ -1,6 +1,12 @@
 <template>
   <div>
     <input type="text" class="todo-input" placeholder="Just do it!" v-model="newTodo" @keyup.enter="addTodo">
+    <div v-for="todo in todos" :key="todo.id" class="todo-item">
+      <div>
+        {{ todo.title }}
+      </div>
+      <div class="remove-item">&times;</div>
+    </div>
   </div>
 </template>
 
@@ -15,12 +21,12 @@ export default {
       todos: [
         {
           'id': 1,
-          'title': 'Get started with vue'
+          'title': 'Get started with vue',
           'completed': false
         },
         {
           'id': 2,
-          'title': 'Connect laravel'
+          'title': 'Connect laravel',
           'completed': false
         }
       ]
@@ -61,4 +67,14 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+.remove-item {
+   cursor: pointer;
+   margin-left: 14px;
+
+}
+.remove-item:hover{
+  color:black;
+
+}
+
 </style>
