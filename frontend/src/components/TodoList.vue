@@ -15,12 +15,12 @@ export default {
       todos: [
         {
           'id': 1,
-          'title': 'Get started with vue'
+          'title': 'Get started with vue',
           'completed': false
         },
         {
           'id': 2,
-          'title': 'Connect laravel'
+          'title': 'Connect laravel',
           'completed': false
         }
       ]
