@@ -1,6 +1,4 @@
-1. vue init webpack frontend
-
-![vuecli prompts](vueinit.png)
+- [ ] ![vuecli prompts](vueinit.png)
 
 2. create a todolist component in `src/components/` and refer to it in App
 
