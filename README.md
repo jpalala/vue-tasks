@@ -1,40 +1,47 @@
-- [ ] ![vuecli prompts](vueinit.png)
+- [ ] Step 1: 
+ 
+![vuecli prompts](vueinit.png)
 
-2. create a todolist component in `src/components/` and refer to it in App
+- [ ] Step 2: Create a todolist component in `src/components/` and refer to it in App
 
-3. Create input field
+- [ ] Step 3: Create input field
 
-4. Create list of todos in todolist's data ()  
+- [ ] Step 4: Create list of todos in todolist's data ()  
 
-5. Create addTodo method
+- [ ] Step 5: Create addTodo method
 
-6. create editTodo,  doneEdit methods,  add completed checkbox
-
-7. Copy components to resources/assets/js/components/ in Laravel
-
-8. add `Vue.component('todo-list', require('./components/TodoList.vue'));` to your assets and use mix
-
-9. Create migration, model, and resource routes 
+- [ ] Step 6: Create editTodo,  doneEdit methods,  add completed checkbox
 
 
-> php artisan make:migration create_tasks_table --create=tasks
+# Integrating with Laravel
 
-> php artisan make:model Task
+- [ ] Step 7: Create backend, Option 1: Copycomponents to resources/assets/js/components/ in Laravel
 
-> php artisan make:resource Task
+- [ ] Step 8:  add `Vue.component('todo-list', require('./components/TodoList.vue'));` to your assets and use laravel mix (see laravel mix documentation]
+
+- [ ] Step 9: Create migration, model, and resource routes 
 
 
-10. Install laravel-cors package:
+> `php artisan make:migration create_tasks_table --create=tasks`
 
-  * Require using composer
-  ```
+> `php artisan make:model Task`
+
+> `php artisan make:resource Task`
+
+- [ ] Step 9B: Allow cross origin requests to your laravel backend
+
+- [ ] Step 10. Install laravel-cors package:
+
+* Require using composer:
+
+  ```bash
     composer require spatie/laravel-cors
   ```
 
 
-  * After that you must register the Cors middleware
+* After that you must register the Cors middleware:
 
-  ```
+  ```php
   // app/Http/Kernel.php
 
   protected $middleware = [
@@ -43,8 +50,8 @@
   ];
   ```
 
-  * Publish a service provider to use CorsServiceProvider:
-
-  `php artisan vendor:publish --provider="Spatie\Cors\CorsServiceProvider" --tag="config"`
-
-Now your app should accept cross origin requests.# New Document. 
+* Publish a service provider to use CorsServiceProvider:
+  ```bash
+   php artisan vendor:publish --provider="Spatie\Cors\CorsServiceProvider" --tag="config"`
+   ```
+All Done! Now your app should accept cross origin requests.
